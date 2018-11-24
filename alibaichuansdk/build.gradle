@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+android {
+
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+allprojects {
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api(name: 'alibc_trade_biz-3.1.1.210', ext: 'aar')
+    api(name: 'alibc_trade_common-3.1.1.210', ext: 'aar')
+    api(name: 'alibc_trade_sdk-3.1.1.210', ext: 'aar')
+    api(name: 'securitybodyaar3-5.1.25', ext: 'aar')
+    api(name: 'securityguardaar3-5.1.81', ext: 'aar')
+    api(name: 'tuniontradesdk-0.3.2', ext: 'aar')
+    api(name: 'alibabauth_ui-1.4.3', ext: 'aar')
+    api(name: 'alibc_link_partner-1.1.0.6', ext: 'aar')
+}
